@@ -14,10 +14,10 @@ int main(int argc, char** argv)
     ifstream file(configfilename);
     string singleline {};
     getline(file, singleline);
-    vector<string> conf{split(singleline, ' ')};
-    if(conf[1]=="=")
+    vector<string> conf{split(singleline, '=')};
+    if(conf[0]=="jobsdirectory")
     {
-        cout << "directory is " << conf[2];
+        cout << "directory is " << conf[1];
     }
     if(argc<1) use_message();
     for(int i=1; i<argc;++i)
