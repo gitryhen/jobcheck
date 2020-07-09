@@ -22,7 +22,11 @@ int main(int argc, char** argv)
     if(argc<1) use_message();
     for(int i=1; i<argc;++i)
     {
-        cout << argv[i] << '\n';
+        string jobfile = conf[1]+'/'+argv[i]+'/'+argv[i]+'/'+"convert.cfg";
+        cout << jobfile << '\n';
+        ifstream myjobfile(jobfile);
+        getline(myjobfile, singleline);
+        cout << singleline << '\n';
     }
 }
 
