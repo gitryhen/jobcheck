@@ -25,7 +25,13 @@ int main(int argc, char** argv)
         string jobfile = conf[1]+'/'+argv[i]+'/'+argv[i]+'/'+"convert.cfg";
         cout << jobfile << '\n';
         ifstream myjobfile(jobfile);
-        getline(myjobfile, singleline);
+        vector<string> setting;
+        while(getline(myjobfile, singleline))
+        {
+            cout << singleline << '\n';
+            setting = split(singleline, ':');
+            cout << setting[1] << '\n';
+        }
         cout << singleline << '\n';
     }
 }
