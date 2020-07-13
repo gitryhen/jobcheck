@@ -15,17 +15,17 @@ int main(int argc, char** argv)
     string singleline {};
     getline(file, singleline);
     vector<string> conf{split(singleline, '=')};
-    if(conf[0]=="jobsdirectory")
+    if(conf[0]!="jobsdirectory")
     {
-        cout << "directory is " << conf[1] << '\n';
+        cout << "Directory with jobs not found.\n";
     }
     if(argc<1) use_message();
     for(int i=1; i<argc;++i)
     {
         string jobfile = conf[1]+'/'+argv[i]+'/'+argv[i]+'/'+"convert.cfg";
         string paramfile = conf[1]+'/'+argv[i]+'/'+argv[i]+'/'+"convert_param.log";
-        cout << conf[1] << '\n';
-        cout << "my convert file is " << jobfile << '\n';
+//        cout << conf[1] << '\n';
+//        cout << "my convert file is " << jobfile << '\n';
         vector<string> setting, filenameelement;
         ifstream myparamfile(paramfile);
         string specfromfilename;
