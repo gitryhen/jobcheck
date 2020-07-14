@@ -7,6 +7,7 @@
 using namespace std;
 
 int use_message();
+string altorientation(string);
 
 int main(int argc, char** argv)
 {
@@ -36,7 +37,7 @@ int main(int argc, char** argv)
             {
                 cout << setting[1] << '\t';
                 filenameelement = split(setting[1],'_');
-                specfromfilename = filenameelement[1].erase(0,1);
+                specfromfilename = filenameelement[1].substr(1,7);
             }
         }
         ifstream myjobfile(jobfile);
@@ -97,7 +98,14 @@ int main(int argc, char** argv)
         }
         else
         {
-            cout << "ERROR\n";
+            if (settingconvertcfg==altorientation(specfromfilename))
+            {
+                cout << "Also success.\n";
+            }
+            else
+            {
+                cout << "ERROR\n";
+            }
         }
     }
 }
@@ -107,4 +115,19 @@ int use_message()
     cout << "Usage: jc [JOBNAME1] [JOBNAME2] [JOBNAME3]\n";
     cout << "print out the file name and the settings of the job.\n";
     return 0;
+}
+
+
+string altorientation(string orientation)
+{
+    string out {orientation.substr(0,2)};
+    if (orientation.substr(2,4)=="CUWR")
+    {
+        out+="CDRR";
+    }
+    if (orientation.substr(2,4)=="CURR")
+    {
+        out+="CDWR";
+    }
+    return out;
 }
