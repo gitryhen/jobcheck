@@ -11,7 +11,7 @@ string altorientation(string);
 
 int main(int argc, char** argv)
 {
-    const string configfilename="jobcheck.cfg";
+    const string configfilename="/home/convert/bin/jobcheck.cfg";
     ifstream file(configfilename);
     string singleline {};
     getline(file, singleline);
@@ -37,7 +37,7 @@ int main(int argc, char** argv)
             {
                 cout << setting[1] << '\t';
                 filenameelement = split(setting[1],'_');
-                specfromfilename = filenameelement[1].substr(1,7);
+                specfromfilename = filenameelement[1].substr(1,6);
             }
         }
         ifstream myjobfile(jobfile);
