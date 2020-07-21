@@ -58,11 +58,11 @@ File::File(std::string f){
 		p.close();
 		int l = content[14].length();
 		std::string polarity{};
-		if content[8].substr(51) == content[9].substr(51)
+		if (content[8].substr(51) == content[9].substr(51))
 		{
 			polarity = "CDWR";
 		}
-		else if content[8].substr(51) != content[9].substr(51)
+		else if (content[8].substr(51) != content[9].substr(51))
 		{
 			polarity = "CDRR";
 		}
